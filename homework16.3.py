@@ -1,30 +1,37 @@
 #exercise 1
 clothes = ["socks", "shirt", "skirt", "scarf"]
-clothes.append("new_cloth",)
+def insert_element(new_cloth, index=0):
+    clothes.insert(index, new_cloth)
+insert_element('hat',1)
 print(clothes)
 
-clothes = ["socks", "shirt", "skirt", "scarf"]
-clothes.insert( 0, "new_cloth")
+insert_element('dress', -1)
 print(clothes)
 
-clothes = ["new_cloth", "socks", "shirt", "skirt", "scarf"]
-print(clothes.pop(1))
-print(clothes.pop(3))
-print(clothes.pop(-1))
-print(clothes.pop(0))
 
+insert_element('blouse')
+print(clothes)
+
+insert_element('red', -2)
+print(clothes)
 
 #Exercise 2
-
 employee_shift = ["Mike", "Andrew", "Emma", "Kelly", "John", "Brad"]
+def replace_employee( old_employee, new_employee, index=0):
+    new_list = employee_shift.replace("Mike", "Natalie")
 
-old_employee = ["Brad"]
-new_employee = ["Natalie"]
-employee_shift [5] = "Natalie"
-new_employee = (employee_shift)
-print(new_employee)
-print(employee_shift)
-employee_shift = ["Mike", "Andrew", "Emma", "Kelly", "John", "Brad"]
-employee_shift [3] =  "Maria"
-print(employee_shift)
+print(new_list)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
