@@ -4,9 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
-import time
-
+from selenium.webdriver.supporfrom selenium import webdriver
 
 driver = webdriver.Chrome(executable_path='drivers/chromedriver')
 # to start Firefox use the line below
@@ -47,11 +45,15 @@ privacy_policy = driver.find_element_by_xpath("//input[@type='checkbox'and @ nam
 privacy_policy.click()
 
 #navigate to subscription
-subscribe_btn = driver.find_element_by_xpath("//input[@name='newsletter' and @value='1']")
-def subscribe_btn_selected():
-    click("no")
 
-    subscribe_btn.click()
+
+subscribe_btn = driver.find_element_by_xpath("//input[@name='newsletter' and @value='0']")
+
+subscribe_btn.click()
+
+
+
+
 
 
 time.sleep(5)
