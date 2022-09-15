@@ -14,7 +14,7 @@ class Checkbox(Element):
 
     def select_checkbox(self):
         subscribe_checkbox = self.get_element()
-        if not subscribe_checkbox_is_selected():
+        if not subscribe_checkbox.is_selected():
                 subscribe_checkbox.click()
 
 
