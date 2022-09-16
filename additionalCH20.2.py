@@ -90,8 +90,7 @@ time.sleep(2)
 
 
 #select=Select(driver.find_element_by_id("input-zone"))
-select = Dropdown(browser, By.ID, 'input-zone')
-select.select_by_value('3630')
+select = Dropdown(browser, By.ID, 'input-zone').select_by_text("Florida")
 
 #navigate privacy policy
 
@@ -102,9 +101,7 @@ privacy_policy.click()
 
 
 #subscribe_btn = driver.find_element_by_xpath("//input[@name='newsletter' and @value='0']")
-subscribe_btn = Checkbox(browser, By.XPATH, "//input[@name='newsletter' and @value='0']")
-
-subscribe_btn.click()
+subscribe_btn = Checkbox(browser, By.XPATH, "//input[@name='newsletter' and @value='0']").click()
 
 
 
