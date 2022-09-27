@@ -1,11 +1,8 @@
-
-from selenium import webdriver
 from webelements.browser import Browser
 from webelements.UIElements import UIElement as Element
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
 import time
-from pyCharmProjects.dropdown import Dropdown
+from webelements.dropdown import Dropdown
 from webelements.checkbox import Checkbox
 browser = Browser("https://cleveronly.com/brainbucket/index.php?route=account/register")
 driver = browser.get_driver()
@@ -87,7 +84,9 @@ password_confirm_input = Element(browser, By.ID, 'input-confirm')
 password_confirm_input.enter_text("160486")
 
 time.sleep(2)
-
+class Dropdown(Element):
+    def __init__(self, browser, by, locator):
+        super(Dropdown, self).__init__()
 
 #select=Select(driver.find_element_by_id("input-zone"))
 select = Dropdown(browser, By.ID, 'input-zone').select_by_text("Florida")
