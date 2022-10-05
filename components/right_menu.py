@@ -1,4 +1,4 @@
-from webelements.UIElement import UIElement as Element
+from webelements.UIElements import UIElement as Element
 from selenium.webdriver.common.by import By
 
 

@@ -2,7 +2,7 @@ from components.header import Header
 from components.right_menu import RightMenu
 from webelements.UIElements import UIElement as Element
 from selenium.webdriver.common.by import By
-from webelements.dropdown import import Dropdown
+from webelements.dropdown import Dropdown
 
 class RegistrationPage:
     def __init__(self, browser):
@@ -23,7 +23,7 @@ class RegistrationPage:
         self.confirm_password_input = Element(browser, By.NAME, "confirm")
 
         self.country_dropdown = Dropdown(browser, By.ID, 'input-country')
-        self.region_dropdown = Dropdown(browser, By.name, 'zone_id')
+        self.region_dropdown = Dropdown(browser, By.NAME, 'zone_id')
 
         self.subscribe_btn = Element(browser, By.XPATH, "//input[@name='newsletter' and @value='1']")
         self.unsubscribe_btn = Element(browser, By.XPATH, "//input[@name='newsletter' and @value='0']")
@@ -37,7 +37,7 @@ class RegistrationPage:
     def enter_first_name(self, text):
         self.first_name_input.enter_text(text)
 
-    def enter_las_name(self, text):
+    def enter_last_name(self, text):
         self.last_name_input(text)
 
     def enter_email(self, text):
@@ -84,3 +84,20 @@ class RegistrationPage:
 
     def submit_form(self):
         self.contniue_btn.submit()
+
+
+    def select_country(self, country):
+        self.country_dropdown.select_by_text(country)
+
+    def select_state(self, state):
+        self.region_dropdown.select_by_text(state)
+
+    def subscribe_to_newsletters(self):
+        self.sunscribe_btn.select()
+    def unsuscribe_from_newsletters(self):
+        self.unsubscribe_btn.select()
+
+    def agree_to_privacy_policy(self):
+        self.privacy_policy_checkbox.select()
+    def submit_from(self):
+        self.continue_btn.submit()
