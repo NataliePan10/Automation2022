@@ -1,3 +1,6 @@
+#Homewor CH 21.2 ex 1
+
+
 from components.header import Header
 from components.right_menu import RightMenu
 from webelements.UIElements import UIElement as Element
@@ -8,6 +11,9 @@ class LoginPage:
         self.header = Header(browser)
         self.right_menu = RightMenu(browser)
         self.continue_btn = Element(browser, By.XPATH, "//a[contains(text(), 'Continue')]")
+        self.email_input = Element(browser, By.NAME, "email")
+        self.password_input = Element(browser, By.NAME, "password")
+        self.login_btn = Element(browser, By.NAME, "Login")
 
     def open_registration_from_menu(self):
         self.header.open_login_page()
@@ -16,6 +22,7 @@ class LoginPage:
 
     def open_registration_from_account_dropdown(self):
         self.header.open_registration_form()
+
     def click_continue_btn(self):
         self.header.open_login_page()
         self.continue_btn.click()

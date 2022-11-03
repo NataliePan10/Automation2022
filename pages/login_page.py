@@ -8,6 +8,9 @@ class LoginPage:
         self.header = Header(browser)
         self.right_menu = RightMenu(browser)
         self.continue_btn = Element(browser, By.XPATH, "//a[contains(text(), 'Continue')]")
+        self.email_input = Element(browser, By.NAME, "email")
+        self.password_input = Element(browser, By.NAME, "password")
+        self.login_btn = Element(browser, By.NAME, "Login")
 
     def open_registration_from_menu(self):
         self.header.open_login_page()
