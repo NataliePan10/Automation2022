@@ -1,6 +1,10 @@
+
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
 from datetime import datetime
+from selenium.webdriver.support.color import Color
+
+
 class UIElement:
     """
     This class is for any web element on the page, takes as parameters browser, method of locating element
@@ -44,6 +48,11 @@ class UIElement:
             print("Web element with locator {} by {} is not visible".format(self._locator, self._by))
             raise
 
+    def wait_until_invisible(self):
+        return self.wait.until(EC.invisibility_of_element_located((self._by,self._locator)))
+
+
+
 
     def get_text(self, wait=True):
         """
@@ -86,6 +95,7 @@ class UIElement:
         except TimeoutException:
             print("Web element with locator {} by {} is not clickable".format(self._locator, self._by))
             raise
+
     def enter_text(self, text, wait=False):
         """
         Sends keys to the input field
@@ -111,3 +121,11 @@ class UIElement:
             print("Web element with locator {} by {} is not clickable".format(self._locator, self._by))
             self.save_screenshots()
             raise
+
+
+    def get_background_color(self):
+        backround_color = self.get_element().value_of_css_property("background-color")
+        return Color.from_string(backround_color)
+
+    def get_font_style(self):
+        return self.get_element().value_of_css_property("font-family")
