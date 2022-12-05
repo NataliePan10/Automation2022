@@ -28,7 +28,9 @@ class Dropdown(Element):
         Select(self.get_element()).select_by_index(index)
 
     def select_by_option_xpath(self,option_xpath):
+        print(self.get_locator()+ option_xpath)
         self.click(self.get_locator() + option_xpath)
+
 
     def select(self, option):
         Deselect(self.get_element()).deselect_by_visible_text(option)

@@ -19,7 +19,7 @@ class NavigationBar:
         self.mp3_players = Element(browser, By.XPATH, "//ul[@class='nav navbar-nav']/li[8]")
 
         #Dropdowns
-        self.dropdown_list_xpath = "//ul[@class='dropdown-menu']"
+        self.dropdown_list_xpath = "//ul[@class='list-unstyled']"
         self.desktops_dropdown = Dropdown(browser, By.XPATH, self.desktops.get_locator() + self.dropdown_list_xpath)
         self.laptops_dropdown = Dropdown(browser, By.XPATH, self.laptops.get_locator() + self.dropdown_list_xpath)
         self.components = Dropdown(browser, By.XPATH, self.components.get_locator() + self.dropdown_list_xpath)
@@ -36,11 +36,12 @@ class NavigationBar:
 
     def show_pcs(self):
         self.actions.move_to_element(self.desktops)
-        self.desktops_dropdown.select_by_option_xpath("//a[contains(text(),'PC'))]")
+        self.desktops_dropdown.select_by_option_xpath("//a[contains(text(),'PC')]")
+
 
     def show_mac_desktops(self):
         self.actions.move_to_element(self.desktops)
-        self.desktops_dropdown.select_by_option_xpath("//a[contains(text(),'Mac'))]")
+        self.desktops_dropdown.select_by_option_xpath("//a[contains(text(),'Mac')]")
 
     def show_all_laptops(self):
         self.actions.move_to_element(self.laptops)
@@ -69,6 +70,7 @@ class NavigationBar:
     def show_phones_and_pdas(self):
         self.actions.move_to_element(self.phones_and_pdas)
         self.phones_and_pdas_dropdown.select_by_option_xpath("//a[@class='see-all']")
+        self.show_phones_and_pdas().click
 
     def show_pdas(self):
         self.actions.move_to_element(self.phones_and_pdas)

@@ -83,7 +83,7 @@ class RegistrationPage:
         self.privacy_policy_checkbox.select()
 
     def submit_form(self):
-        self.contniue_btn.submit()
+        self.continue_btn.submit()
 
 
     def select_country(self, country):
@@ -93,11 +93,11 @@ class RegistrationPage:
         self.region_dropdown.select_by_text(state)
 
     def subscribe_to_newsletters(self):
-        self.sunscribe_btn.select()
+        self.subscribe_btn.click()
     def unsuscribe_from_newsletters(self):
         self.unsubscribe_btn.select()
 
     def agree_to_privacy_policy(self):
-        self.privacy_policy_checkbox.select()
+        self.privacy_policy_checkbox.click()
     def submit_from(self):
         self.continue_btn.submit()

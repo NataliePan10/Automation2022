@@ -49,7 +49,7 @@ class UIElement:
             raise
 
     def wait_until_invisible(self):
-        return self.wait.until(EC.invisibility_of_element_located((self._by,self._locator)))
+        return self.wait.until(EC.invisibility_of_element_located(self._by,self._locator))
 
 
 
