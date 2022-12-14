@@ -26,3 +26,9 @@ class ConfigReader:
 
     def get_password(self):
         return self.reader.get_password()
+
+    def get_height(self):
+        return self.reader.get_height()
+
+    def get_width(self):
+        return self.reader.get_width()

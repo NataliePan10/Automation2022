@@ -38,7 +38,7 @@ class RegistrationPage:
         self.first_name_input.enter_text(text)
 
     def enter_last_name(self, text):
-        self.last_name_input(text)
+        self.last_name_input.enter_text(text)
 
     def enter_email(self, text):
         self.email_input.enter_text(text)

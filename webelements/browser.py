@@ -23,9 +23,16 @@ class Browser:
         print(driver_dir)
         # decide which browser to open, can be extended
         if browser_name.lower() == "firefox":
-            self.driver = webdriver.Firefox(executable_path=os.path.join(driver_dir, 'geckodriver'))
+            self.driver = webdriver.Firefox(firefox_profile=firefox_profile,executable_path='../drivers/geckodriver')
             self.driver.maximize_window()
-        elif browser_name.lower() == "chrome":
+        else:
+            options = webdriver.ChromeOptions()
+            options.add_argument("--start--maximized")
+            options.add_argument("--window-size=412,915")
+            self.driver = webdriver.Chrome(executable_path=r'..//drivers/chromedriver', options=options)
+
+
+            #browser_name.lower() == "chrome":
             self.driver = webdriver.Chrome(executable_path=os.path.join(driver_dir, 'chromedriver.exe'))
 
 

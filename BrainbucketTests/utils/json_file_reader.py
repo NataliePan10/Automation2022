@@ -17,12 +17,22 @@ class JsonFileReader:
             raise Exception("Wait time option is not present in the config file")
         return int(self.data['wait_time'])
 
-    def get_user1_email(self, section_name):
-        if user1_email not in self.data.keys():
+    def get_email(self):
+        if user_email not in self.data.keys():
             raise Exception("Email is not found in the config file")
-        return int(self.data['email'])
+        return self.data['email']
 
-    def get_user1_password(self, section_name):
-        if user1_password not in self.data.keys():
+    def get_password(self):
+        if user_password not in self.data.keys():
             raise Exception("Password is not found in the config file")
-        return int(self.data['password'])
+        return self.data['password']
+
+    def get_height(self):
+        if height not in self.data.keys():
+            raise Exception("Height is not found in the config file")
+        return self.data['height']
+
+    def get_width(self):
+        if width not in self.data.keys():
+            raise Exception("Width is not found in the config file")
+        return self.data['width']

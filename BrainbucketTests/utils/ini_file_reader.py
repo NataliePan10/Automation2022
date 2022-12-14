@@ -20,12 +20,27 @@ class IninFileReader:
             raise Exception("Wait time option is not present in the config file")
         return int(value)
 
-    def get_user1_email(self, section_name):
-        if user1_email not in self.data.keys():
+    def get_email(self):
+        value = self.data.get('section name', 'email', fallback=None)
+        if value is None:
             raise Exception("Email is not found in the config file")
-        return int(self.data['email'])
+        return value
 
-    def get_user1_password(self, section_name):
-        if user1_password not in self.data.keys():
+    def get_password(self):
+        value = self.data.get('section name', 'password', fallback=None)
+        if value is None:
             raise Exception("Password is not found in the config file")
-        return int(self.data['password'])
+        return value
+
+    def get_height(self):
+        value = self.data.get('environment', 'height', fallback=None)
+        if value is None:
+            raise Exception("Height is not found in config file")
+        return int(value)
+
+    def get_width(self):
+        value = self.data.get('environment', 'width', fallback=None)
+        if value is None:
+            raise Exception("Width is not found in config file")
+        return int(value)
+

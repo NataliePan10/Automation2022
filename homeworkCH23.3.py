@@ -66,8 +66,8 @@ def test_prompt_alert():
 
 def test_iframe():
     browser = Browser(URL)
-    iframe = Element(browser, By.TAG_NAME, 'iframe')
-    browser.iframe.switch_to_iframe(iframe.get_element())
+    iframe = Iframe(browser)
+    iframe.switch_to_iframe(iframe.get_element())
 
     time.sleep(2)
     Element(browser, By. ID, "intro logo").wait_until_visible()
@@ -82,7 +82,7 @@ def test_iframe():
 
 
 if __name__ == "__main__":
-    test_simple_alert()
-    test_confirmation_alert()
-    test_prompt_alert()
+    #test_simple_alert()
+    #test_confirmation_alert()
+    #test_prompt_alert()
     test_iframe()

@@ -2,8 +2,10 @@ from webelements.browser import Browser
 from webelements.UIElements import UIElement as Element
 from selenium.webdriver.common.by import By
 import time
+from BrainbucketTests.utils.config_reader import ConfigReader
 
 URL = "http://cleveronly.com/practice/"
+configs = ConfigReader("config.json")
 
 def test_simple_alert():
     browser = Browser(URL)
@@ -28,6 +30,7 @@ def test_confirmation_alert():
 
     time.sleep(2)
     msg = Element(browser, By.ID, 'msg')
+    print(msg.get_text())
     assert msg.get_text() == "You pressed CANCEL!"
 
     confirmation_btn.click()
@@ -44,19 +47,19 @@ def test_prompt_alert():
 
     prompt_btn.click()
 
-     alert = browser.get_driver().switch_to.alert
+    alert = browser.get_driver().switch_to.alert
 
-     time.sleep(2)
-     name = "Natalie"
-     alert.send_keys(name)
-     alert.accept()
+    time.sleep(2)
+    name = "Natalie"
+    alert.send_keys(name)
+    alert.accept()
 
-     msg = "Hello{}! How are you today?".format(name)
-     prompt_msg = Element(browser, By.ID, "demo")
-     print(prompt_msg.get_text)
-     assert prompt_msg.get_text() == msg
+    msg = "Hello {}! How are you today?".format(name)
+    prompt_msg = Element(browser, By.ID, "demo")
+    print(prompt_msg.get_text)
+    assert prompt_msg.get_text() == msg
 
-     browser.shutdown()
+    browser.shutdown()
 
 
 def test_iframe():
@@ -75,6 +78,6 @@ if __name__ == "__main__":
     test_simple_alert()
     test_confirmation_alert()
     test_prompt_alert()
-    test_iframe()
+    #test_iframe()
 
 
