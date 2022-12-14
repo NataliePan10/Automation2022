@@ -1,3 +1,6 @@
+
+
+
 Scenario Outline: buying
   Given John has <start> Bitcoins
   When market was down John purchased <bought> Bitcoins
