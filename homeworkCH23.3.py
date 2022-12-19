@@ -82,7 +82,7 @@ def test_iframe():
 
 
 if __name__ == "__main__":
-    #test_simple_alert()
-    #test_confirmation_alert()
-    #test_prompt_alert()
-    test_iframe()
+    test_simple_alert()
+    test_confirmation_alert()
+    test_prompt_alert()
+    #test_iframe()

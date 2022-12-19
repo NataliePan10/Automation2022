@@ -3,8 +3,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 import os
 
 
-
-
 class Browser:
     """
     This class is wrapper around Selenium driver
@@ -29,11 +27,11 @@ class Browser:
             options = webdriver.ChromeOptions()
             options.add_argument("--start--maximized")
             options.add_argument("--window-size=412,915")
-            self.driver = webdriver.Chrome(executable_path=r'..//drivers/chromedriver', options=options)
+            #self.driver = webdriver.Chrome(executable_path=r'..//drivers/chromedriver', options=options)
 
 
             #browser_name.lower() == "chrome":
-            self.driver = webdriver.Chrome(executable_path=os.path.join(driver_dir, 'chromedriver.exe'))
+            self.driver = webdriver.Chrome(executable_path=os.path.join(driver_dir, 'chromedriver.exe'), options=options)
 
 
         self.driver.get(url)

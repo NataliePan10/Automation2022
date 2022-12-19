@@ -2,14 +2,14 @@
 
 
 Scenario Outline: buying
-  Given John has <start> Bitcoins
-  When market was down John purchased <bought> Bitcoins
-  Then John should have <summary> Bitcoins
+  Given John has <start> tablet
+  When John purchased <bought> tablet
+  Then John should have <summary> tablets
 
 
   Examples:
     |start|bought|summary|
-    |2|2|4|
+    |1|1|2|
 
 
 Feature: Multiple account users
@@ -19,13 +19,13 @@ Feature: Multiple account users
     And access for changing password
     And user named Tom
 
-  Scenario: John is changing password for account
+  Scenario: John is changing password for account on Brainbucket
     Given I am logged as John
     When I try to change account password
     Then I shoud see "You changed your password successfully"
 
 
-  Scenario: Tom tries to change account password
+  Scenario: Tom tries to change account password Brainbucket
     Given I am logged as Tom
     When I try to change account password
     Then I should see "Your attempt was failed"
