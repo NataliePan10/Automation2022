@@ -30,31 +30,4 @@ Feature: Multiple account users
     Then I should see "Your attempt was failed"
 
 
-#Exersise 3
 
-  Feature: Show Wishlist
-
-    Scenario: Show items in wishlist
-      Given a web browser is at Brainbucket home page account
-      When the user navigates to wishlist
-      Then wishlist items are displayed
-
-
-  Feature: Products
-
-    Scenario: A user can add product to the cart
-      Given user is on Brainbucket homepage
-      When user clicks "Add to cart" button
-      Then user sees product in the cart
-
-
-
-
-
-  Feature: My account
-
-    Scenario: A user can access to account
-      Given user is on Brainbucket home page
-      When user clicks "My account" button
-      And user enters all needed information
-      Then user has access to his account
