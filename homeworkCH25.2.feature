@@ -21,7 +21,7 @@ Feature: Multiple account users
   Scenario: John is changing password for account
     Given I am logged as John
     When I try to change account password
-    Then I shoud see "You changed your password successfully"
+    Then I should see "You changed your password successfully"
 
 
   Scenario: Tom tries to change account password
@@ -54,7 +54,7 @@ Feature: Multiple account users
   Feature: My account
 
     Scenario: A user can access to account
-    Given user is on Brainbucket home page
-    When user clicks "My account" button
-    And user enters all needed information
-    Then user has access to his account
+      Given user is on Brainbucket home page
+      When user clicks "My account" button
+      And user enters all needed information
+      Then user has access to his account
