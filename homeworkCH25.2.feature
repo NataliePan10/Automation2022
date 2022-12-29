@@ -1,9 +1,9 @@
 #Excersise 1
 
-  Scenario Outline: buying
-  Given John has <start> Bitcoins
-  When John purchases <amount> Bitcoins
-  Then John should have <summary> Bitcoins
+  Scenario Outline: buying tablets
+  Given user has <start> tablets
+  When user purchases <amount> tablets
+  Then user should have <summary> tablets
 
 
   Examples:
@@ -14,9 +14,9 @@
 Feature: Multiple account users
   Only owner can change the password, except users who can only use website
   Background:
-    Given an owner named John
+    Given an owner named "John"
     And access for changing password
-    And user named Tom
+    And user named "Tom"
 
   Scenario: John is changing password for account
     Given I am logged as John

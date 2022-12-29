@@ -10,8 +10,8 @@ Feature: Login functionality
     Then The user's profile page will be launched
 
 
-  Scenario: User can not login without entering password
+  Scenario: User can not login without entering correct email and password
     Given User is  not logged in
-    When User enters email
+    When User enters incorrect email and password
     And User clicks Login button
     Then Warning will be shown about 'No match for E-Mail Address and/or Password'

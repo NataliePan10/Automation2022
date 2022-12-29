@@ -1,7 +1,7 @@
 
 
 
-Scenario Outline: buying
+Scenario Outline: buying tablets
   Given John has <start> tablet
   When John purchased <bought> tablet
   Then John should have <summary> tablets
@@ -15,9 +15,9 @@ Scenario Outline: buying
 Feature: Multiple account users
   Only owner can change the password, except users who can only use website
   Background:
-    Given an owner named John
+    Given an owner named "John"
     And access for changing password
-    And user named Tom
+    And user named "Tom"
 
   Scenario: John is changing password for account on Brainbucket
     Given I am logged as John

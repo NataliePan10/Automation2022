@@ -1,4 +1,4 @@
-Feature: My account
+Feature: My account access
 
     Scenario: A user can access to account
       Given user is on Brainbucket home page
