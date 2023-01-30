@@ -19,7 +19,7 @@ class NavigationBar:
         self.mp3_players = Element(browser, By.XPATH, "//ul[@class='nav navbar-nav']/li[8]")
 
         #Dropdowns
-        self.dropdown_list_xpath = "//ul[@class='list-unstyled']"
+        self.dropdown_list_xpath = "//ul[@class='dropdown-menu']"
         self.desktops_dropdown = Dropdown(browser, By.XPATH, self.desktops.get_locator() + self.dropdown_list_xpath)
         self.laptops_dropdown = Dropdown(browser, By.XPATH, self.laptops.get_locator() + self.dropdown_list_xpath)
         self.components = Dropdown(browser, By.XPATH, self.components.get_locator() + self.dropdown_list_xpath)
@@ -32,7 +32,7 @@ class NavigationBar:
 
     def show_all_desktops(self):
         self.actions.move_to_element(self.desktops)
-        self.desktops_dropdown.select_by_option_xpath("//a[@class='see-all']")
+        self.desktops_dropdown.select_by_option_xpath("//a[contains(text(),'Show All Desktops')]")
 
     def show_pcs(self):
         self.actions.move_to_element(self.desktops)

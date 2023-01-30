@@ -27,6 +27,11 @@ class JsonFileReader:
             raise Exception("Password is not found in the config file")
         return self.data['password']
 
+    def get_url(self):
+        if 'url' not in self.data.keys():
+                raise Exception("URL option is not present in the config file")
+        return self.data['url']
+
     def get_height(self):
         if height not in self.data.keys():
             raise Exception("Height is not found in the config file")

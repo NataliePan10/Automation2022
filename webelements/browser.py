@@ -3,11 +3,24 @@ from selenium.webdriver.support.ui import WebDriverWait
 import os
 
 
+
+
 class Browser:
     """
     This class is wrapper around Selenium driver
     """
     def __init__(self, url, browser_name="chrome", time_wait = 10):
+        # if browser_name.lower() == 'chrome':
+        #     BROWSERSTACK_URL = 'https://nataliapan_68qEjx:VxjkdUKRzMtojzABmdGa@hub-cloud.browserstack.com/wd/hub'
+        #     desired_cap = {
+        #     'os', 'Windows',
+        #     'os_version': '10',
+        #     'browser': 'Chrome',
+        #     'browser_version': 'latest',
+        # }
+        # self.driver = webdriver.Remote(command_executor=BROWSERSTACK_URL, desired_capabilities=desired_cap)
+
+
         project_name = "Automation2022"
         current_dir = os.getcwd()
         print("Scripts are executed from:", current_dir)
@@ -21,17 +34,23 @@ class Browser:
         print(driver_dir)
         # decide which browser to open, can be extended
         if browser_name.lower() == "firefox":
-            self.driver = webdriver.Firefox(firefox_profile=firefox_profile,executable_path='../drivers/geckodriver')
+            self.driver = webdriver.Firefox(executable_path=os.path.join(driver_dir, 'geckodriver'))
             self.driver.maximize_window()
-        else:
-            options = webdriver.ChromeOptions()
-            options.add_argument("--start--maximized")
-            options.add_argument("--window-size=412,915")
-            #self.driver = webdriver.Chrome(executable_path=r'..//drivers/chromedriver', options=options)
+        elif browser_name.lower() == "chrome":
 
-
-            #browser_name.lower() == "chrome":
-            self.driver = webdriver.Chrome(executable_path=os.path.join(driver_dir, 'chromedriver.exe'), options=options)
+            self.driver = webdriver.Chrome(executable_path=os.path.join(driver_dir, 'chromedriver.exe'))
+        # elif browser_name.lower() == 'remote':
+        #     BROWSERSTACK_URL = 'https:nataliapan_68qEjx:VxjkdUKRzMtojzABmdGa@hub-cloud.browserstack.com/wd/hub'
+        #     desired_cap = {
+        #         'bstack:options': {
+        #             "os": "Windows",
+        #             "osVersion": "10",
+        #             "browserVersion": "latest"
+        #         },
+        #         "browserName": "Chrome"
+        #     }
+        #
+        #     self.driver = webdriver.Remote(command_executor=BROWSERSTACK_URL, desired_capabilities=desired_cap)
 
 
         self.driver.get(url)
@@ -51,3 +70,4 @@ class Browser:
 
     def switch_to_iframe(self):
         self.switch_to_iframe()
+

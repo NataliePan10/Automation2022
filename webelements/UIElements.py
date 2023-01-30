@@ -31,7 +31,7 @@ class UIElement:
         try:
             return self.driver.find_element(self._by, self._locator)
         except NoSuchElementException:
-            print("Wasn't able to find element by {} with locator ={}".format(self._by, self._locator))
+            print("Wasn't able to find element by {} with locator={}".format(self._by, self._locator))
             raise
 
     def get_locator(self):
@@ -91,7 +91,7 @@ class UIElement:
         else:
             locator = xpath
         try:
-            self.wait.until(EC.element_to_be_clickable((self._by,locator))).click()
+            self.wait.until(EC.element_to_be_clickable((self._by, locator))).click()
         except TimeoutException:
             print("Web element with locator {} by {} is not clickable".format(self._locator, self._by))
             raise
@@ -115,7 +115,6 @@ class UIElement:
         Clicks on submit button of the form
         """
         try:
-
             self.wait.until(EC.element_to_be_clickable((self._by, self._locator))).submit()
         except TimeoutException:
             print("Web element with locator {} by {} is not clickable".format(self._locator, self._by))

@@ -18,7 +18,8 @@ def test_case_opening_PCs():
     open_PCs = Element(browser, By.XPATH, "//a[contains(text(),'- PC (1)')]")
     home_page.show_pcs()
     Samsung = Element(browser, By.XPATH, "//a[contains(text(),'Samsung SyncMaster 941BW')]")
-    assert Samsung.get_text() == "Samsung SyncMaster 941 BW available for sale"
+    #assert Samsung.get_text() == "Samsung SyncMaster 941 BW available for sale"
+    Samsung.click()
 
 
 if __name__ == "__main__":

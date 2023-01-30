@@ -1,6 +1,6 @@
 from configparser import ConfigParser
 
-class IninFileReader:
+class IniFileReader:
     def __init__(self, filename):
         self.data = None
 
@@ -31,6 +31,13 @@ class IninFileReader:
         if value is None:
             raise Exception("Password is not found in the config file")
         return value
+
+    def get_url(self):
+        value = self.data.get('environment', 'url', fallback=None)
+        if value is None:
+            raise Exception("URL option is not found in environment section")
+        return value
+
 
     def get_height(self):
         value = self.data.get('environment', 'height', fallback=None)

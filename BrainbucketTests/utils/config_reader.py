@@ -1,5 +1,5 @@
 from BrainbucketTests.utils.json_file_reader import JsonFileReader
-from BrainbucketTests.utils.ini_file_reader import IninFileReader
+from BrainbucketTests.utils.ini_file_reader import IniFileReader
 
 class ConfigReader:
     def __init__(self, filename):
@@ -26,6 +26,9 @@ class ConfigReader:
 
     def get_password(self):
         return self.reader.get_password()
+
+    def get_url(self):
+        return self.reader.get_url()
 
     def get_height(self):
         return self.reader.get_height()

@@ -8,6 +8,8 @@ class LoginPage:
         self.header = Header(browser)
         self.right_menu = RightMenu(browser)
         self.continue_btn = Element(browser, By.XPATH, "//a[contains(text(), 'Continue')]")
+        self.new_customer_title = Element(browser, By.XPATH, "//h2[contains(text(), 'New Customer')]")
+        self.returning_customer_title = Element(browser, By.XPATH, "//h2[contains(text(), 'Returning Customer')]")
         self.email_input = Element(browser, By.NAME, "email")
         self.password_input = Element(browser, By.NAME, "password")
         self.login_btn = Element(browser, By.NAME, "Login")
