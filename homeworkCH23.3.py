@@ -86,3 +86,4 @@ if __name__ == "__main__":
     test_confirmation_alert()
     test_prompt_alert()
     #test_iframe()
+

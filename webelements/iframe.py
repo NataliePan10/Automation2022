@@ -5,10 +5,11 @@ import time
 
 URL = "http://cleveronly.com/practice/"
 
-class Iframe:
-    def __init__(self, browser):
+class Iframe(Element):
+    def __init__(self, browser, by, locator):
+        super.__init__(browser, by, locator)
         self.driver = browser.get_driver()
-        self.iframe = self.driver.switch_to.frame(iframe.get_element())
+        self.iframe = self.driver.switch_to.frame(self.get_element())
 
     def switch_to_iframe(self):
-        return self.switch_to_iframe()
+        return self.iframe

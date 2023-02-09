@@ -19,7 +19,7 @@ class NavigationBar:
         self.mp3_players = Element(browser, By.XPATH, "//ul[@class='nav navbar-nav']/li[8]")
 
         #Dropdowns
-        self.dropdown_list_xpath = "//ul[@class='dropdown-menu']"
+        self.dropdown_list_xpath = "//div[@class='dropdown-menu']"
         self.desktops_dropdown = Dropdown(browser, By.XPATH, self.desktops.get_locator() + self.dropdown_list_xpath)
         self.laptops_dropdown = Dropdown(browser, By.XPATH, self.laptops.get_locator() + self.dropdown_list_xpath)
         self.components = Dropdown(browser, By.XPATH, self.components.get_locator() + self.dropdown_list_xpath)
