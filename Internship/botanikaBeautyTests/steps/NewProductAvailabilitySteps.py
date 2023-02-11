@@ -1,6 +1,6 @@
 from behave import given, when, then
 
-@given("a web browser is at the Botanikabeauty home page")
+@given("Botanikabeauty home page is launched")
 def launch_botanikabeauty_homepage(context):
     print("launch_botanikabeauty_homepage")
 
