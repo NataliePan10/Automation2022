@@ -82,10 +82,13 @@ class UIElement:
             element = self.get_element()
         return element.get_attribute(attribute)
 
+
+
     def click(self, xpath = None):
         """
         Waits until element will be clickable and clicks on it
         """
+        #self.driver.execute_script("arguments[0].scrollIntoView();", self.get_element())
         if xpath is None:
             locator = self._locator
         else:
@@ -128,3 +131,6 @@ class UIElement:
 
     def get_font_style(self):
         return self.get_element().value_of_css_property("font-family")
+
+    def scroll_down(self):
+        self.driver.execute_script("arguments[0].scrollIntoView();", self.get_element())

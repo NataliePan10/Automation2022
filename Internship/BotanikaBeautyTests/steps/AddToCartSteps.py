@@ -17,6 +17,7 @@ def click_add_to_cart_button(context):
 
 
 
+
 @then("new product is added to the cart")
 def verify_new_product_added_to_the_cart(context):
     new_product_page = NewProductsPage(context.browser)

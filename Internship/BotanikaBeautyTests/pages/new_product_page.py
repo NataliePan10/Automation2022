@@ -11,7 +11,13 @@ class NewProductsPage:
         self.actions = Actions(browser)
         self.navbar = NavigationBar(browser)
 
-        self.add_to_cart_btn = Element(browser, By. XPATH, "//span[@data-id = '39670945120310']")
+        self.add_to_cart_under_shampoo = Element(browser, By.XPATH, "//span[@data-id='39670945120310']/span")
+        self.add_to_cart_under_conditioner = Element(browser, By.XPATH, "//span[@data-id = '39670944006198']")
+        self.add_to_cart_under_trio_bundle = Element(browser, By.XPATH, "//span[@data-id = '39670955016246']")
+        self.add_to_cart_under_spray = Element(browser, By.XPATH, "//span[@data-id = '39670942629942']")
+
+        #self.add_to_cart_btn = Element(browser, By. XPATH, "//span[@data-id = '39670945120310']")
+        self.add_to_cart_box = Element(browser, By.XPATH, "//span[@id='AddToCartText-product-template-4']")
 
         self.conditioner = Element(browser, By.XPATH, "//a[contains(text(),'The Manager Silkening Conditioner')]")
         self.shampoo = Element(browser, By. XPATH, "(//a[@title = 'The Cleanser Hydrating Shampoo'])")
@@ -25,13 +31,15 @@ class NewProductsPage:
         self.increase_product_amount = Element(browser, By.XPATH, "//div[@class = 'quantity']")
         self.decrease_product_amount = Element(browser, By.XPATH, "//input[@type = 'number']")
 
+        self.got_btn = Element(browser, By.XPATH, "//button[@class='btn btn-theme js-btn-ok']")
+
 
         #Add quickshop btn, remove new products, add navigation bar class
 
     def quickshop(self, product):
         if product == "The Cleanser Hydrating Shampoo":
-            self.actions.move_to_element(self.shampoo)
-            self.shampoo.click()
+            self.add_to_cart_under_shampoo.click()
+
 
         if product == "The Manager silkening conditioner":
             self.actions.move_to_element(self.conditioner)
@@ -48,9 +56,12 @@ class NewProductsPage:
 
 
     def add_to_cart(self, product):
+        self.got_btn.click()
         if product == "The Cleanser Hydrating Shampoo":
-            self.actions.move_to_element(self.shampoo)
-            self.shampoo.click()
+            self.actions.move_to_element(self.add_to_cart_under_shampoo)
+            self.add_to_cart_under_shampoo.click()
+
+
 
         if product == "The Manager silkening conditioner":
             self.actions.move_to_element(self.conditioner)

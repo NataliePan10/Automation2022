@@ -29,10 +29,15 @@ class Browser:
             self.driver = webdriver.Firefox(executable_path=os.path.join(driver_dir, 'geckodriver'))
             self.driver.maximize_window()
         elif browser_name.lower() == "chrome":
-
             self.driver = webdriver.Chrome(executable_path=os.path.join(driver_dir, 'chromedriver.exe'))
-
-
+            # BROWSERSTACK_URL = 'https://nataliapan_68qEjx:VxjkdUKRzMtojzABmdGa@hub-cloud.browserstack.com/wd/hub'
+            # desired_cap = {
+            #     'os': 'Windows',
+            #     'os_version': '10',
+            #     'browser': 'Chrome',
+            #     'browser_version': 'latest'
+            # }
+            # self.driver = webdriver.Remote(command_executor=BROWSERSTACK_URL, desired_capabilities=desired_cap)
 
         self.driver.get(url)
         self.wait = WebDriverWait(self.driver, 10)

@@ -2,7 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 from webelements.browser import Browser
 from webelements.UIElements import UIElement as Element
-from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from webelements.dropdown import Dropdown
 from webelements.actions import Actions
