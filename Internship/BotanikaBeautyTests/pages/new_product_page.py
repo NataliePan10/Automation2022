@@ -3,6 +3,10 @@ from Internship.BotanikaBeautyTests.components.UIElement import UIElement as Ele
 from Internship.BotanikaBeautyTests.components.actions import Actions
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from Internship.BotanikaBeautyTests.components.browser import Browser
+#from Internship.BotanikaBeautyTests.pages.popup import AddToCartBtnOnPopup
+
+import time
 
 
 
@@ -11,7 +15,12 @@ class NewProductsPage:
         self.actions = Actions(browser)
         self.navbar = NavigationBar(browser)
 
-        self.add_to_cart_under_shampoo = Element(browser, By.XPATH, "//span[@data-id='39670945120310']/span")
+        self.quickshop_under_shampoo = Element(browser, By.XPATH, "//span[@data-handle='the-cleanser']")
+        #self.add_to_cart_btn = Element(browser, By.XPATH, "//button[@class='btn btn-theme gradient-theme qv-add-button']")
+        #self.close_button = Element(browser, By.XPATH,"//div[@id='jsQuickview']/div/div/div/button/i")
+
+
+        self.add_to_cart_under_shampoo = Element(browser, By.XPATH, "//span[@data-id='39670945120310']")
         self.add_to_cart_under_conditioner = Element(browser, By.XPATH, "//span[@data-id = '39670944006198']")
         self.add_to_cart_under_trio_bundle = Element(browser, By.XPATH, "//span[@data-id = '39670955016246']")
         self.add_to_cart_under_spray = Element(browser, By.XPATH, "//span[@data-id = '39670942629942']")
@@ -24,7 +33,11 @@ class NewProductsPage:
         self.trio_bundle = Element(browser, By.XPATH, "//a[contains(text(),'Trio Bundle: The Manager, Lifter & Cleanser')]")
         self.spray = Element(browser, By.XPATH, "//a[contains(text(),'The Lifter Volumizer Spray')]")
 
-        self.cart_indicator = Element(browser, By.XPATH, "//span[@title]")
+        self.cart_indicator = Element(browser, By.XPATH, "//span[@title='Shopping Cart']")
+
+        self.product_indicator = Element(browser, By.XPATH, "//div[@class='mini-cart-meta']//a")
+
+        #self.cart_title = Element(browser, By.XPATH, "//div[@id='growls-default']")
 
         self.amount_of_new_product = Element(browser, By.XPATH, "//input[@type = 'number']")
 
@@ -37,8 +50,21 @@ class NewProductsPage:
         #Add quickshop btn, remove new products, add navigation bar class
 
     def quickshop(self, product):
+        self.got_btn.click()
+
         if product == "The Cleanser Hydrating Shampoo":
-            self.add_to_cart_under_shampoo.click()
+            self.actions.move_to_element(self.spray)
+            time.sleep(2)
+            self.actions.move_to_element(self.quickshop_under_shampoo)
+            time.sleep(2)
+            self.quickshop_under_shampoo.click()
+            time.sleep(5)
+
+
+
+        time.sleep(5)
+
+
 
 
         if product == "The Manager silkening conditioner":
@@ -57,9 +83,15 @@ class NewProductsPage:
 
     def add_to_cart(self, product):
         self.got_btn.click()
+
+
         if product == "The Cleanser Hydrating Shampoo":
+            self.actions.move_to_element(self.spray)
+            time.sleep(2)
             self.actions.move_to_element(self.add_to_cart_under_shampoo)
+            time.sleep(2)
             self.add_to_cart_under_shampoo.click()
+            time.sleep(5)
 
 
 
@@ -90,7 +122,7 @@ class NewProductsPage:
         return self.spray.get_text()
 
     def get_cart_title(self):
-        return self.cart_indicator.get_text()
+        return self.cart_title.get_text()
 
     def get_cart_indicator(self):
         return self.cart_indicator.get_text()
@@ -104,6 +136,12 @@ class NewProductsPage:
 
     def decrease_product_amount(self):
         return self.decrease_product_amount.click()
+
+    def get_product_indicator(self):
+        return self.product_indicator.get_text()
+
+
+
 
 
 

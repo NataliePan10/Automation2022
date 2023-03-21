@@ -21,7 +21,7 @@ class Browser:
             while not current_dir.endswith(project_name):
                 current_dir = os.path.split(current_dir)[0]
                 if current_dir == '/':
-                    raise Exception("Project folder wasn'nt found in", os.getcwd())
+                    raise Exception("Project folder wasn't found in", os.getcwd())
         driver_dir = os.path.join(current_dir, 'drivers')
         print(driver_dir)
         # decide which browser to open, can be extended
@@ -30,14 +30,16 @@ class Browser:
             self.driver.maximize_window()
         elif browser_name.lower() == "chrome":
             self.driver = webdriver.Chrome(executable_path=os.path.join(driver_dir, 'chromedriver.exe'))
-            # BROWSERSTACK_URL = 'https://nataliapan_68qEjx:VxjkdUKRzMtojzABmdGa@hub-cloud.browserstack.com/wd/hub'
-            # desired_cap = {
-            #     'os': 'Windows',
-            #     'os_version': '10',
-            #     'browser': 'Chrome',
-            #     'browser_version': 'latest'
-            # }
-            # self.driver = webdriver.Remote(command_executor=BROWSERSTACK_URL, desired_capabilities=desired_cap)
+
+        elif browser_name.lower() == "remote":
+            BROWSERSTACK_URL = 'https://nataliapan_68qEjx:VxjkdUKRzMtojzABmdGa@hub-cloud.browserstack.com/wd/hub'
+            desired_cap = {
+                'os': 'Windows',
+                'os_version': '10',
+                'browser': 'Chrome',
+                'browser_version': 'latest'
+             }
+            self.driver = webdriver.Remote(command_executor=BROWSERSTACK_URL, desired_capabilities=desired_cap)
 
         self.driver.get(url)
         self.wait = WebDriverWait(self.driver, 10)

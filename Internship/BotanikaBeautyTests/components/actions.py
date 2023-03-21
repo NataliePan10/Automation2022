@@ -93,7 +93,7 @@ class Actions:
         if reset:
             self.action_chains.reset_actions()
 
-        self.action_chains.move_to_element_with_offset(to_element.get_element, xoffset, yoffset).perform()
+        self.action_chains.move_to_element_with_offset(to_element.get_element(), xoffset, yoffset).perform()
 
     def send_keys(self, keys_to_send, reset=True):
         if reset:

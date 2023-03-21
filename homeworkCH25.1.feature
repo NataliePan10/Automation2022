@@ -2,9 +2,9 @@
 
 
 Scenario Outline: buying tablets
-  Given John has <start> tablet
-  When John purchased <bought> tablet
-  Then John should have <summary> tablets
+  Given user has <start> tablet
+  When user purchased <bought> tablet
+  Then user should have <summary> tablets
 
 
   Examples:
@@ -22,7 +22,7 @@ Feature: Multiple account users
   Scenario: John is changing password for account on Brainbucket
     Given I am logged as John
     When I try to change account password
-    Then I shoud see "You changed your password successfully"
+    Then I should see "You changed your password successfully"
 
 
   Scenario: Tom tries to change account password Brainbucket
